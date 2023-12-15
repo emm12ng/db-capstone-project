@@ -16,12 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `bookings`
+-- Table structure for table `orders`
 --
 
-LOCK TABLES `bookings` WRITE;
-/*!40000 ALTER TABLE `bookings` DISABLE KEYS */;
-/*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `OrderID` int NOT NULL AUTO_INCREMENT,
+  `BookingID` int NOT NULL,
+  `MenuID` int DEFAULT NULL,
+  `Quantity` int NOT NULL,
+  `BillAmount` decimal(10,2) NOT NULL,
+  `CustomerID` int DEFAULT NULL,
+  PRIMARY KEY (`OrderID`),
+  KEY `BookingID_idx` (`BookingID`),
+  KEY `MenuID_idx` (`MenuID`),
+  KEY `FK_CustomerID` (`CustomerID`),
+  CONSTRAINT `BookingID` FOREIGN KEY (`BookingID`) REFERENCES `bookings` (`BookingID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_CustomerID` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`),
+  CONSTRAINT `MenuID` FOREIGN KEY (`MenuID`) REFERENCES `menus` (`MenuID`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -33,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-14 20:41:23
+-- Dump completed on 2023-12-14 21:53:45

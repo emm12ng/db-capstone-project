@@ -16,12 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Dumping data for table `menus`
+-- Table structure for table `employees`
 --
 
-LOCK TABLES `menus` WRITE;
-/*!40000 ALTER TABLE `menus` DISABLE KEYS */;
-/*!40000 ALTER TABLE `menus` ENABLE KEYS */;
+DROP TABLE IF EXISTS `employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `employees` (
+  `EmployeeID` int NOT NULL AUTO_INCREMENT,
+  `EmployeeName` varchar(255) NOT NULL,
+  `Role` varchar(255) NOT NULL,
+  `Salary` varchar(45) NOT NULL,
+  PRIMARY KEY (`EmployeeID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employees`
+--
+
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -33,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-14 20:41:24
+-- Dump completed on 2023-12-14 21:53:45
