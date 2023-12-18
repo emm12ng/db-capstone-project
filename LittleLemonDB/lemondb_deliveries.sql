@@ -16,29 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `menuitems`
+-- Table structure for table `deliveries`
 --
 
-DROP TABLE IF EXISTS `menuitems`;
+DROP TABLE IF EXISTS `deliveries`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `menuitems` (
-  `MenuItemID` int NOT NULL,
-  `CourseName` varchar(255) NOT NULL,
-  `StarterName` varchar(255) NOT NULL,
-  `Price` decimal(10,2) NOT NULL,
-  `DessertName` varchar(255) NOT NULL,
-  PRIMARY KEY (`MenuItemID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `deliveries` (
+  `DeliveryID` int NOT NULL AUTO_INCREMENT,
+  `OrderID` int NOT NULL,
+  `DeliveryDate` datetime DEFAULT NULL,
+  `Status` varchar(100) NOT NULL,
+  PRIMARY KEY (`DeliveryID`),
+  KEY `OrderID_idx` (`OrderID`),
+  CONSTRAINT `OrderID` FOREIGN KEY (`OrderID`) REFERENCES `orders` (`OrderID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `menuitems`
+-- Dumping data for table `deliveries`
 --
 
-LOCK TABLES `menuitems` WRITE;
-/*!40000 ALTER TABLE `menuitems` DISABLE KEYS */;
-/*!40000 ALTER TABLE `menuitems` ENABLE KEYS */;
+LOCK TABLES `deliveries` WRITE;
+/*!40000 ALTER TABLE `deliveries` DISABLE KEYS */;
+/*!40000 ALTER TABLE `deliveries` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-14 21:53:44
+-- Dump completed on 2023-12-17 18:57:11

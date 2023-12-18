@@ -16,28 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `employees`
+-- Table structure for table `menuitems`
 --
 
-DROP TABLE IF EXISTS `employees`;
+DROP TABLE IF EXISTS `menuitems`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `employees` (
-  `EmployeeID` int NOT NULL AUTO_INCREMENT,
-  `EmployeeName` varchar(255) NOT NULL,
-  `Role` varchar(255) NOT NULL,
-  `Salary` varchar(45) NOT NULL,
-  PRIMARY KEY (`EmployeeID`)
+CREATE TABLE `menuitems` (
+  `MenuItemID` int NOT NULL,
+  `CourseName` varchar(255) NOT NULL,
+  `StarterName` varchar(255) NOT NULL,
+  `Price` decimal(10,2) NOT NULL,
+  `DessertName` varchar(255) NOT NULL,
+  PRIMARY KEY (`MenuItemID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `employees`
+-- Dumping data for table `menuitems`
 --
 
-LOCK TABLES `employees` WRITE;
-/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
+LOCK TABLES `menuitems` WRITE;
+/*!40000 ALTER TABLE `menuitems` DISABLE KEYS */;
+INSERT INTO `menuitems` VALUES (1,'Course 1','Mushroom soup',30.00,'Tiramisu'),(2,'Course 2','Chip dips',25.00,'Doughnuts'),(3,'Course 3','Calamari',35.00,'Mousse cake');
+/*!40000 ALTER TABLE `menuitems` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-14 21:53:45
+-- Dump completed on 2023-12-17 18:57:10
